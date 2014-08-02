@@ -13,27 +13,39 @@ typedef struct pessoa{
 
 typedef struct pessoa no;
 
-// id para o tipo de inclusao 0 ,1,2
+// id para o tipo de inclusao 0, 1, 2
 int inserir (no *raiz, char *Nome, char *Sexo,int id){
-		if(raiz == NULL){
-			no* aux =(no*)malloc(sizeof(no));
-			aux->nome = (char*) malloc(20*sizeof(char));
-			aux->sexo = (char*) malloc(10*sizeof(char));
-			strcpy(aux->nome , Nome);
-			strcpy(aux->sexo, Sexo);
-			aux->pai = NULL;
-			aux->mae = NULL;
-			aux->filho2 = NULL;
-			aux->filho1 = NULL;
-			aux->conjuge = NULL;
-			raiz = aux;
-			return 1;
-		}
 		if(id == 1){
-			inserir(raiz->filho1,Nome,Sexo,id);
+			if(raiz == NULL){
+				no* aux =(no*)malloc(sizeof(no));
+				aux->nome = (char*) malloc(20*sizeof(char));
+				aux->sexo = (char*) malloc(10*sizeof(char));
+				strcpy(aux->nome , Nome);
+				strcpy(aux->sexo, Sexo);
+				aux->pai = NULL;
+				aux->mae = NULL;
+				aux->conjuge = NULL;
+				raiz = aux;
+				return 1;
+			}else{
+				inserir(raiz->filho1,Nome,Sexo,id);}
 		}
-		if (id==2){
-			inserir(raiz->filho2,Nome,Sexo,id);
+
+		if(id == 2){
+			if(raiz == NULL){
+				no* aux =(no*)malloc(sizeof(no));
+				aux->nome = (char*) malloc(20*sizeof(char));
+				aux->sexo = (char*) malloc(10*sizeof(char));
+				strcpy(aux->nome , Nome);
+				strcpy(aux->sexo, Sexo);
+				aux->pai = NULL;
+				aux->mae = NULL;
+				aux->conjuge = NULL;
+				raiz = aux;
+				return 1;
+			}else{
+				inserir(raiz->filho2,Nome,Sexo,id);
+			}
 		}
 
     return 0;
@@ -138,4 +150,3 @@ int main(int argc, char *argv[]){
 
     return 0;
 }
-
